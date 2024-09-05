@@ -209,6 +209,9 @@ func commonArgs(cluster string, cfg *config.Cluster, networkName string, nodeNam
 		args = append(args, "-e", "KIND_DNS_SEARCH="+strings.Join(*cfg.Networking.DNSSearch, " "))
 	}
 
+	args = append(args, "--device", "/dev/cpu")
+	args = append(args, "--device", "/dev/mem")
+
 	return args, nil
 }
 
